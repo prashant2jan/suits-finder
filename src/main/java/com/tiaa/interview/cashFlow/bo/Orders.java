@@ -1,22 +1,27 @@
 package com.tiaa.interview.cashFlow.bo;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="orders")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Orders {
-	@XmlElement
+	@XmlElement(name="orderdetail")
 	private OrderDetails[] orderDetails;
 
 	/**
 	 * @return the orderDetails
 	 */
-	protected OrderDetails[] getOrderDetails() {
+	public OrderDetails[] getOrderDetails() {
 		return orderDetails;
 	}
 
 	/**
 	 * @param orderDetails the orderDetails to set
 	 */
-	protected void setOrderDetails(OrderDetails[] orderDetails) {
+	public void setOrderDetails(OrderDetails[] orderDetails) {
 		this.orderDetails = orderDetails;
 	}
 }

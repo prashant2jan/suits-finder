@@ -2,37 +2,42 @@ package com.tiaa.interview.cashFlow.bo;
 
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="orderdetail")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class OrderDetails {
 	
-	@XmlElement
+	@XmlElement(name="orderid")
 	private Integer orderId;
-	@XmlElement
+	@XmlElement(name="billamount")
 	private BigDecimal billAmount;
 	
 	/**
 	 * @return the orderId
 	 */
-	protected Integer getOrderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
 	/**
 	 * @param orderId the orderId to set
 	 */
-	protected void setOrderId(Integer orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 	/**
 	 * @return the billAmount
 	 */
-	protected BigDecimal getBillAmount() {
+	public BigDecimal getBillAmount() {
 		return billAmount;
 	}
 	/**
 	 * @param billAmount the billAmount to set
 	 */
-	protected void setBillAmount(BigDecimal billAmount) {
+	public void setBillAmount(BigDecimal billAmount) {
 		this.billAmount = billAmount;
 	}
 	

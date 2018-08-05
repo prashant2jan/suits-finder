@@ -2,25 +2,23 @@ package com.tiaa.interview.cashFlow.service;
 
 import java.math.BigDecimal;
 
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 
 import com.tiaa.interview.cashFlow.bo.Branch;
-import com.tiaa.interview.cashFlow.bo.CmFoodChainRequest;
+import com.tiaa.interview.cashFlow.bo.CmFoodchain;
+import com.tiaa.interview.cashFlow.bo.OrderDetails;
+import com.tiaa.interview.cashFlow.bo.Orders;
 
 @Service
 public class CashFlowService {
 	
-	public Branch getBranchDetails (HttpEntity<CmFoodChainRequest> payload) throws Exception {
-		String strResult = EntityUtils.toString((org.apache.http.HttpEntity) payload); 
-		JSONObject jsonResult = new JSONObject(strResult);
-		BigDecimal sumOfEarnings = sumEarnings(jsonResult);
-		BigDecimal totalCollection = totalCollection(jsonResult);
-		String location = getLocation(jsonResult);
-		String locationId = getLocationId(jsonResult);
+	public Branch getBranchDetails (CmFoodchain payload) throws Exception {
+		
+		BigDecimal sumOfEarnings = sumEarnings(payload);
+		BigDecimal totalCollection = totalCollection(payload);
+		String location = getLocation(payload);
+		String locationId = getLocationId(payload);
+		
 		Branch branch = null;
 		if (sumOfEarnings != totalCollection) {
 			branch = new Branch(location, totalCollection, sumOfEarnings, locationId, false);
@@ -30,34 +28,34 @@ public class CashFlowService {
 		return branch;
 	}
 	
-	private BigDecimal sumEarnings (JSONObject payload) throws Exception {
+	private BigDecimal sumEarnings (CmFoodchain payload) throws Exception {
 		BigDecimal sum = new BigDecimal(0D);
-		JSONArray ordersList = payload.getJSONArray("orders");
-		for (int i = 0, size = ordersList.length(); i < size; i++) {
-			JSONObject objectInArray = ordersList.getJSONObject(i);
-			sum = sum.add(new BigDecimal(objectInArray.getDouble("billamount")));
+		Orders orders = payload.getOrders();
+		OrderDetails[] od = orders.getOrderDetails();
+		for (OrderDetails o: od) {
+			sum = sum.add(o.getBillAmount());
 		}
 		return sum;
 	}
 
-	private BigDecimal totalCollection (JSONObject payload) throws Exception {
+	private BigDecimal totalCollection (CmFoodchain payload) throws Exception {
 		BigDecimal totalCollectionAmount = new BigDecimal(0D);
-		JSONObject branchObj = payload.getJSONObject("branch");
-		totalCollectionAmount = new BigDecimal(branchObj.getDouble("totalcollection"));
+		Branch branchObj = payload.getBranches();
+		totalCollectionAmount = branchObj.getTotalCollection();
 		return totalCollectionAmount;
 	}
 	
-	private String getLocationId (JSONObject payload) throws Exception {
+	private String getLocationId (CmFoodchain payload) throws Exception {
 		String locationId = null;
-		JSONObject branchObj = payload.getJSONObject("branch");
-		locationId = branchObj.getString("locationid");
+		Branch branchObj = payload.getBranches();
+		locationId = branchObj.getLocationId();
 		return locationId;
 	}
 	
-	private String getLocation (JSONObject payload) throws Exception {
+	private String getLocation (CmFoodchain payload) throws Exception {
 		String location = null;
-		JSONObject branchObj = payload.getJSONObject("branch");
-		location = branchObj.getString("location");
+		Branch branchObj = payload.getBranches();
+		location = branchObj.getLocation();
 		return location;
 	}
 }

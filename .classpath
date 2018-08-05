@@ -7,7 +7,8 @@
   <classpathentry kind="var" path="M2_REPO/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-  <classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/4.11/junit-4.11.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" sourcepath="M2_REPO/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot-starter-web/2.0.2.RELEASE/spring-boot-starter-web-2.0.2.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot-starter/2.0.2.RELEASE/spring-boot-starter-2.0.2.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot/2.0.2.RELEASE/spring-boot-2.0.2.RELEASE.jar"/>
@@ -54,7 +55,6 @@
   <classpathentry kind="var" path="M2_REPO/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar"/>
   <classpathentry kind="var" path="M2_REPO/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/objenesis/objenesis/2.6/objenesis-2.6.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" sourcepath="M2_REPO/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar" sourcepath="M2_REPO/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar" sourcepath="M2_REPO/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1-sources.jar"/>
@@ -74,5 +74,6 @@
   <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpcore/4.0-beta1/httpcore-4.0-beta1.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-codec/commons-codec/1.3/commons-codec-1.3.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/json/json/20180130/json-20180130.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/json/json/20160212/json-20160212.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sun/xml/bind/jaxb-impl/2.3.0/jaxb-impl-2.3.0.jar"/>
 </classpath>

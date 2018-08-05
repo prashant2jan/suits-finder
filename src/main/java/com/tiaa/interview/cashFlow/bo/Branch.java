@@ -2,18 +2,26 @@ package com.tiaa.interview.cashFlow.bo;
 
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name="branch")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Branch {
-	@XmlElement
+	@XmlElement(name="location")
 	private String location;
-	@XmlElement
+	@XmlElement(name="totalcollection")
 	private BigDecimal totalCollection;
-	@XmlElement
+	@XmlElement(name="sumoforder")
 	private BigDecimal sumOfOrder;
-	@XmlElement
+	@XmlElement(name="locationid")
 	private String locationId;
+	
 	private boolean isMatch;
+	
+	public Branch() {}
 	
 	/**
 	 * @param location
@@ -33,63 +41,63 @@ public class Branch {
 	/**
 	 * @return the location
 	 */
-	protected String getLocation() {
+	public String getLocation() {
 		return location;
 	}
 	/**
 	 * @param location the location to set
 	 */
-	protected void setLocation(String location) {
+	public void setLocation(String location) {
 		this.location = location;
 	}
 	/**
 	 * @return the totalCollection
 	 */
-	protected BigDecimal getTotalCollection() {
+	public BigDecimal getTotalCollection() {
 		return totalCollection;
 	}
 	/**
 	 * @param totalCollection the totalCollection to set
 	 */
-	protected void setTotalCollection(BigDecimal totalCollection) {
+	public void setTotalCollection(BigDecimal totalCollection) {
 		this.totalCollection = totalCollection;
 	}
 	/**
 	 * @return the sumOfOrder
 	 */
-	protected BigDecimal getSumOfOrder() {
+	public BigDecimal getSumOfOrder() {
 		return sumOfOrder;
 	}
 	/**
 	 * @param sumOfOrder the sumOfOrder to set
 	 */
-	protected void setSumOfOrder(BigDecimal sumOfOrder) {
+	public void setSumOfOrder(BigDecimal sumOfOrder) {
 		this.sumOfOrder = sumOfOrder;
 	}
 	/**
 	 * @return the locationId
 	 */
-	protected String getLocationId() {
+	public String getLocationId() {
 		return locationId;
 	}
 	/**
 	 * @param locationId the locationId to set
 	 */
-	protected void setLocationId(String locationId) {
+	public void setLocationId(String locationId) {
 		this.locationId = locationId;
 	}
 	
 	/**
 	 * @return the isMatch
 	 */
-	protected boolean isMatch() {
+	public boolean isMatch() {
 		return isMatch;
 	}
 
 	/**
 	 * @param isMatch the isMatch to set
 	 */
-	protected void setMatch(boolean isMatch) {
+	public void setMatch(boolean isMatch) {
 		this.isMatch = isMatch;
 	}
 	

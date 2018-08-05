@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -51,7 +51,12 @@
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
-			<version>20180130</version>
+			<version>20160212</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.0</version>
 		</dependency>
 	</dependencies>
 	<build>

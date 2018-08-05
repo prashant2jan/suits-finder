@@ -1,7 +1,7 @@
 package com.tiaa.interview.cashFlow.mvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,22 +9,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tiaa.interview.cashFlow.bo.Branch;
-import com.tiaa.interview.cashFlow.bo.CmFoodChainRequest;
+import com.tiaa.interview.cashFlow.bo.CmFoodchain;
 import com.tiaa.interview.cashFlow.service.CashFlowService;
+import com.tiaa.interview.cashFlow.util.CashFlowUtil;
 
 @RestController
 public class CashFlowController {
 	@Autowired
 	CashFlowService cashFlowService;
+	
+	@Autowired
+	CashFlowUtil util;
 
-	@RequestMapping(value = "/process", method = RequestMethod.POST, consumes = "text/plain")
-	public @ResponseBody Branch process(@RequestBody HttpEntity<CmFoodChainRequest> payload) throws Exception {
-		Branch branch = null;
-		if (payload != null) {
-			if (payload.getHeaders().getContentType().equals("application/json")) {
-				branch = cashFlowService.getBranchDetails(payload);
-			}
+	@RequestMapping(value = "/branch", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	public @ResponseBody Branch process(@RequestBody String payload) throws Exception {
+		CmFoodchain request = null;
+		if (payload != null && payload.startsWith("<")) {
+			request = util.convertXmlToObject(payload);
+		} else {
+			request = util.convertJsonToObject(payload);
 		}
-		return branch;
+		return cashFlowService.getBranchDetails(request);
 	}
+
+
+
+
 }
