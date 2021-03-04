@@ -3,10 +3,6 @@ package com.tiaa.interview.cashFlow;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.client.RestTemplate;
-
-import com.tiaa.interview.cashFlow.bo.CmFoodChainResponse;
-import com.tiaa.interview.cashFlow.bo.CmFoodchain;
 
 /**
  * Cash Flow Management Application
@@ -20,18 +16,18 @@ public class CashFlowApplication
     public static void main( String[] args )
     {
     	SpringApplication.run(CashFlowApplication.class, args);
-    	createMatchingFiles();
+//    	createMatchingFiles();
     }
 
-	private static void createMatchingFiles() {
-		CmFoodChainResponse response = new CmFoodChainResponse();
-	}
-
-	private static String getBranches() {
-		final String uri = "http://localhost:8080/branch";
-
-	    RestTemplate restTemplate = new RestTemplate();
-	    String result = restTemplate.getForObject(uri, String.class);
-	    return result;
-	}
+//	private static void createMatchingFiles() {
+//		CmFoodChainResponse response = new CmFoodChainResponse();
+//	}
+//
+//	private static String getBranches() {
+//		final String uri = "http://localhost:8080/branch";
+//
+//	    RestTemplate restTemplate = new RestTemplate();
+//	    String result = restTemplate.getForObject(uri, String.class);
+//	    return result;
+//	}
 }
