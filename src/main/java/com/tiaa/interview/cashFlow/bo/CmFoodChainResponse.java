@@ -14,14 +14,14 @@ public class CmFoodChainResponse {
 	/**
 	 * @return the branches
 	 */
-	protected Branch[] getBranches() {
+	public Branch[] getBranches() {
 		return branches;
 	}
 
 	/**
 	 * @param branches the branches to set
 	 */
-	protected void setBranches(Branch[] branches) {
+	public void setBranches(Branch[] branches) {
 		this.branches = branches;
 	}
 	

@@ -3,6 +3,10 @@ package com.tiaa.interview.cashFlow;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.client.RestTemplate;
+
+import com.tiaa.interview.cashFlow.bo.CmFoodChainResponse;
+import com.tiaa.interview.cashFlow.bo.CmFoodchain;
 
 /**
  * Cash Flow Management Application
@@ -10,12 +14,24 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 
  */
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = {org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration.class})
+@EnableAutoConfiguration
 public class CashFlowApplication 
 {
     public static void main( String[] args )
     {
-//    	System.setProperty("javax.xml.bind.context.factory","org.eclipse.persistence.jaxb.JAXBContextFactory");
     	SpringApplication.run(CashFlowApplication.class, args);
+    	createMatchingFiles();
     }
+
+	private static void createMatchingFiles() {
+		CmFoodChainResponse response = new CmFoodChainResponse();
+	}
+
+	private static String getBranches() {
+		final String uri = "http://localhost:8080/branch";
+
+	    RestTemplate restTemplate = new RestTemplate();
+	    String result = restTemplate.getForObject(uri, String.class);
+	    return result;
+	}
 }
