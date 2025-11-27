@@ -7,3 +7,4 @@ com/suits/finder/util/SuitsFinderUtil.class
 com/suits/finder/bo/Cases.class
 com/suits/finder/mvc/SuitsFinderController.class
 com/suits/finder/bo/Users.class
+com/suits/finder/sample/Result.class
